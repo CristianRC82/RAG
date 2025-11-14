@@ -3,7 +3,6 @@ from langchain_core.runnables import RunnablePassthrough, RunnableWithMessageHis
 from langchain_core.output_parsers import StrOutputParser
 
 class RetrievalPipeline:
-    """Pipeline RAG con memoria basada en placeholder."""
 
     def __init__(self, retriever, llm, memory_manager):
         self.memory_manager = memory_manager
@@ -43,9 +42,6 @@ class RetrievalPipeline:
 
     def ask(self, question: str, session_id: str):
         history = self.memory_manager.get_session_history(session_id)
-        print("\n🧠 Historial actual:")
-        for msg in history.messages:
-            print(f" - {msg.type}: {msg.content}")
         return self.chain.invoke(
             {"question": question},
             config={"configurable": {"session_id": session_id}}

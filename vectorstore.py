@@ -5,7 +5,6 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 class VectorstoreManager:
 
-
     def __init__(self, gcs, embeddings):
         self.gcs = gcs
         self.embeddings = embeddings

@@ -1,7 +1,6 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 class LLMManager:
-    """Configura el modelo LLM (Gemini)."""
 
     def __init__(self, gcs):
         self.llm = ChatGoogleGenerativeAI(
