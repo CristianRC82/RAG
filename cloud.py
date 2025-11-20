@@ -29,8 +29,6 @@ class GoogleCloudStorageManager:
             local_path = os.path.join(temp_dir, filename)
             blob.download_to_filename(local_path)
             downloaded_files.append(local_path)
-            print(f"Descargado: gs://{self.bucket_name}/{blob.name} → {local_path}")
-
         return downloaded_files
 
     def download_folder_to_local(self, prefix: str, local_dir: str):
